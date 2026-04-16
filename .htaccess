@@ -1,0 +1,20 @@
+# ── Apache .htaccess ────────────────────────────────────────────────────────
+# Route all requests through index.php
+# Block direct access to PHP files in subdirectories
+
+Options -Indexes
+
+RewriteEngine On
+
+# Block direct access to config, services, controllers, helpers
+RewriteRule ^(config|services|controllers|helpers)/ - [F,L]
+
+# Route everything to index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+# Disallow .env, log files
+<FilesMatch "\.(env|log|json|sh)$">
+    Require all denied
+</FilesMatch>
