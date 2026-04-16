@@ -1,4 +1,4 @@
-# HelaPay Merchant QR — PHP REST API
+# HelaPay Merchant QR - PHP REST API
 
 Secure PHP wrapper for the HelaPay (HelaPOS) Merchant QR API v1.2.0.
 
